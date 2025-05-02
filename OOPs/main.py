@@ -35,9 +35,9 @@ class Lab(Boldy):
         print(f"{self.name} says Welcome Malik")
 
 l = Lab("Max")
-l.greet()
-l.sound()
-l.display_name()
+# l.greet()
+# l.sound()
+# l.display_name()
 
 # Multiple Inheritance
 
@@ -50,7 +50,60 @@ class Golden(Lab, Friend):
         print(f"{self.name} is of golden color.")
 
 gold = Golden("Tobby")
-gold.display_name()
-gold.friend()
-gold.greet()
-gold.sound()
+# gold.display_name()
+# gold.friend()
+# gold.greet()
+# gold.sound()
+
+
+# Polymorphism
+
+# Overriding
+class Doberman(Doggy):
+    def display_name(self):
+        print(f"{self.name} is active") # overriding parent class function.
+
+dob = Doberman("Doodo")
+# dob.display_name()
+
+class Calculator:
+    def add(self, *args): # Method Overloading 
+        sum = 0
+        for a in args:
+            sum += a
+        return sum
+
+
+cal = Calculator()
+# print(cal.add(1,2,2,3,4,5,6,7,8,10))
+# print(cal.add(1,2))
+        
+
+# Encapsulation
+# Public Members: Easily accessible, such as name.
+# Protected Members: Used with a single _, such as _breed. Access is discouraged but allowed in subclasses.
+# Private Members: Used with __, such as __age. Access requires getter and setter methods.
+
+class Car:
+    def __init__(self,model,age,company):
+        self.company = company
+        self._model = model # protected attribute, to make protected use _
+        self.__age = age # private attribute , to make private use __
+     
+    def get_company(self):
+        print(self.company)
+    
+    # Getter & Setter to set the private attribute __age
+    def get_age(self):
+        return self.__age
+    def set_age(self,age):
+        if age > 0:
+            self.__age = age
+        else:
+            print("Invalid")
+
+car = Car(911,1,"Porche")
+car.set_age(2)
+car.get_company()
+print(car.get_age())
+        
