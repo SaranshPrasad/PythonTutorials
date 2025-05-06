@@ -103,7 +103,32 @@ class Car:
             print("Invalid")
 
 car = Car(911,1,"Porche")
-car.set_age(2)
-car.get_company()
-print(car.get_age())
-car.set_age(220)
+# car.set_age(2)
+# car.get_company()
+# print(car.get_age())
+# car.set_age(220)
+
+
+# Data Abstraction
+
+# Abstraction hides the internal implementation details while exposing only the necessary functionality. It helps focus on “what to do” rather than “how to do it.”
+
+# Types of Abstraction:
+# 1. Partial Abstraction: Abstract class contains both abstract and concrete methods.
+# 2. Full Abstraction: Abstract class contains only abstract methods (like interfaces).
+from abc import ABC, abstractmethod
+class Human:
+    def __init__(self,name):
+        self.name = name
+
+    @abstractmethod
+    def sound(self):
+        pass
+
+class Insaan(Human): # partial abstraction
+    def sound(self):
+        print("Hehehehehehe!")
+
+saru = Insaan("Saru")
+saru.sound()
+print(saru.name)
